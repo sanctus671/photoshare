@@ -1,30 +1,69 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.kungfupanda912505" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.taylorhamling.kungfupanda" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
   <name>Kung Fu Panda Camera</name>
   <description>
-        Camera app for Westfield for Kung Fu Panda release
-    </description>
-  <author email="taylor@taylorhamling.com" href="http://www.taylorhamling.com/">
-      Taylor Hamling
-    </author>
-  <content src="index.html"/>
-  <access origin="*"/>
-  <preference name="webviewbounce" value="false"/>
-  <preference name="UIWebViewBounce" value="false"/>
-  <preference name="DisallowOverscroll" value="true"/>
-  <preference name="android-minSdkVersion" value="16"/>
-  <preference name="BackupWebStorage" value="none"/>
-  <feature name="StatusBar">
-    <param name="ios-package" value="CDVStatusBar" onload="true"/>
-  </feature>
+    Camera app for Westfield for Kung Fu Panda release
+  </description>
+  <author email="taylor@taylorhamling.com" href="http://www.taylorhamling.com">
+    Taylor Hamling
+  </author>
+  
+  
+    <content src="index.html" />
+	<preference name="phonegap-version" value="cli-5.2.0" /> 
+	<preference name="android-build-tool" value="gradle" /> 
+    <preference name="permissions" value="none" />
+    <preference name="orientation" value="default" />
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="false" />
+    <preference name="webviewbounce" value="true" />
+    <preference name="prerendered-icon" value="true" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="show-splash-screen-spinner" value="false" />
+    <preference name="auto-hide-splash-screen" value="false" />
+    <preference name="disable-cursor" value="false" />
+    <preference name="android-minSdkVersion" value="15" />
+    <preference name="android-installLocation" value="auto" />
+    <preference name="ShowSplashScreenSpinner" value="false" />  
+	<preference name="FadeSplashScreen" value="true" />  
+	<preference name="FadeSplashScreenDuration" value="1.0" />  
+	<preference name="SplashScreen" value="splash" />
+	<preference name="SplashMaintainAspectRatio" value="true" />
+    <preference name="AutoHideSplashScreen" value="false" />
+	<preference name="SplashScreenDelay" value="10000" />	
+    <gap:plugin name="org.apache.cordova.network-information" />
+
+
+
+	
     <gap:plugin name="org.apache.cordova.camera"/>
-    <gap:plugin name="org.apache.cordova.file" />	
+    <gap:plugin name="org.apache.cordova.file" />
+    <gap:plugin name="org.apache.cordova.file-transfer"/>	
 	
-    <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />  
+    <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
+
+	<icon src="resources/icon.png" />
+
 	
-	<gap:plugin name="org.apache.cordova.inappbrowser"/>	
+	<gap:splash src="resources/splash.png" />
     <access origin="*" />
     <plugin name="cordova-plugin-whitelist" version="1" />
-    <allow-intent href="http://*/*" />	
-	
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+	<allow-navigation href="http://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+	<platform name="winphone"></platform>
 </widget>
