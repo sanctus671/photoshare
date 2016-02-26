@@ -24,7 +24,7 @@
 	
 	<gap:plugin name="org.apache.cordova.inappbrowser"/>	
     <access origin="*" />
-    <gap:plugin name="cordova-plugin-whitelist" version="1" />
+    <plugin name="cordova-plugin-whitelist" version="1" />
     <allow-intent href="http://*/*" />	
 	
 </widget>
