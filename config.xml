@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<widget id="com.ionicframework.kungfupanda912505" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>Kung Fu Panda Camera</name>
+  <description>
+        Camera app for Westfield for Kung Fu Panda release
+    </description>
+  <author email="taylor@taylorhamling.com" href="http://www.taylorhamling.com/">
+      Taylor Hamling
+    </author>
+  <content src="index.html"/>
+  <access origin="*"/>
+  <preference name="webviewbounce" value="false"/>
+  <preference name="UIWebViewBounce" value="false"/>
+  <preference name="DisallowOverscroll" value="true"/>
+  <preference name="android-minSdkVersion" value="16"/>
+  <preference name="BackupWebStorage" value="none"/>
+  <feature name="StatusBar">
+    <param name="ios-package" value="CDVStatusBar" onload="true"/>
+  </feature>
+    <gap:plugin name="org.apache.cordova.camera"/>
+    <gap:plugin name="org.apache.cordova.file" />	
+	
+    <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />  
+	
+	<gap:plugin name="org.apache.cordova.inappbrowser"/>	
+    <access origin="*" />
+    <gap:plugin name="cordova-plugin-whitelist" version="1" />
+    <allow-intent href="http://*/*" />	
+	
+</widget>
