@@ -4,8 +4,6 @@
 angular.module('app.controllers', [])
 
 .controller('HomeCtrl', function($scope, $ionicLoading, SITE_URL, $ionicPopup) {
-    console.log("here");
-    
     $scope.useGetFile = function(){
           navigator.camera.getPicture(
                   $scope.onPhotoSuccess,
@@ -43,7 +41,7 @@ angular.module('app.controllers', [])
         var options = new FileUploadOptions();
         options.fileKey="fileToUpload";
         var d = new Date();
-        options.fileName=d.toString();
+        options.fileName="photo"
         options.mimeType="image/jpeg";
         options.params = {};
         var ft = new FileTransfer();
@@ -51,7 +49,7 @@ angular.module('app.controllers', [])
             $ionicLoading.hide();
             var data = JSON.parse(response.response);
             if (data.result === 'success'){
-                $scope.shareViaFacebook(data.url);
+                $scope.shareViaFacebook(encodeURI(SITE_URL + data.url));
             }
             else{               
                 $ionicPopup.alert({
