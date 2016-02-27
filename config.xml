@@ -44,6 +44,8 @@
     <gap:plugin name="org.apache.cordova.file-transfer"/>	
 	
     <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
+    
+    	<gap:plugin name="org.apache.cordova.inappbrowser"/>
 
 	<icon src="resources/icon.png" />
 
@@ -54,6 +56,7 @@
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
 	<allow-navigation href="http://*/*" />
+        <allow-navigation href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
