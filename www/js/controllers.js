@@ -67,7 +67,7 @@ angular.module('app.controllers', [])
     };  
     
     $scope.shareViaFacebook = function(imageUrl){
-        window.open( SITE_URL + 'index.php?image=' + imageUrl, "_system", "EnableViewPortScale=yes,location=yes,toolbar=yes,clearcache=yes,clearsessioncache=yes,hardwareback=yes");
+        window.open( SITE_URL, "_system", "EnableViewPortScale=yes,location=yes,toolbar=yes,clearsessioncache=yes,hardwareback=yes");
     }
     $scope.shareViaInstagram = function(){
         var t = "#kungfupanda";
