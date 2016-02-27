@@ -40,4 +40,6 @@ angular.module('app', ['ionic', 'app.controllers'])
     
     $urlRouterProvider.otherwise('/home');
     
-});
+})
+
+.constant('SITE_URL', 'http://www.taylorhamling.com/luminary/');

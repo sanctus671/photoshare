@@ -3,7 +3,7 @@
 
 angular.module('app.controllers', [])
 
-.controller('HomeCtrl', function($scope) {
+.controller('HomeCtrl', function($scope, $ionicLoading, SITE_URL, $ionicPopup) {
     console.log("here");
     
     $scope.useGetFile = function(){
@@ -36,43 +36,40 @@ angular.module('app.controllers', [])
     };  
   
     $scope.onPhotoSuccess = function(imageURI){
+        $ionicLoading.show({
+            template: 'Uploading image...'
+        }); 
 
-
-          var options = new FileUploadOptions();
-          options.fileKey="fileToUpload";
-          options.fileName=$rootScope.user.username;
-          options.mimeType="image/jpeg";
-          options.params = {key:API_KEY,session:$rootScope.user.sessionid, controller:"edit", action:"uploaddp", userid:$rootScope.user.id};
-          var ft = new FileTransfer();
-          ft.upload(imageURI, encodeURI(API_URL), function(data){
-              $ionicLoading.hide();
-              var response = JSON.parse(data.response);
-              if (response.success === true){   
-                  $rootScope.user.dp = response.data;
-                  $scope.profile.dp = response.data;         
-              }
-              else{
-                  SecuredPopups.show('alert',{
-                  title: 'Error',
-                  template: "Error: " + JSON.stringify(response)
-                  });                
-              }
-          },  
-          function(data){  
-              $ionicLoading.hide();        
-              SecuredPopups.show('alert',{
-              title: 'Error',
-              template: 'Sorry, there was an error uploading your file.'
-              });
-          }, options);		
-
-
+        var options = new FileUploadOptions();
+        options.fileKey="fileToUpload";
+        var d = new Date();
+        options.fileName=d.toString();
+        options.mimeType="image/jpeg";
+        options.params = {};
+        var ft = new FileTransfer();
+        ft.upload(imageURI, encodeURI(SITE_URL + "upload.php"), function(response){
+            $ionicLoading.hide();
+            var data = JSON.parse(response.response);
+            if (data.result === 'success'){
+                $scope.shareViaFacebook(data.url);
+            }
+            else{               
+                $ionicPopup.alert({
+                title: 'Error',
+                template: data.msg
+                });                
+            }
+        },  
+        function(data){           
+            $ionicLoading.hide();        
+            $ionicPopup.alert({
+            title: 'Error',
+            template: 'Sorry, there was an error uploading your file.'
+            });}, options);	
     };  
     
-    $scope.shareViaFacebook = function(){
-        var t = "#kungfupanda";
-        var u = "http://i.imgur.com/7NnWSgJ.jpg";
-        window.open( 'http://www.facebook.com/sharer.php', "_blank", "EnableViewPortScale=yes,location=yes,toolbar=yes");
+    $scope.shareViaFacebook = function(imageUrl){
+        window.open( SITE_URL + 'index.php?image=' + imageUrl, "_blank", "EnableViewPortScale=yes,location=yes,toolbar=yes,clearcache=yes,clearsessioncache=yes,hardwareback=yes");
     }
     $scope.shareViaInstagram = function(){
         var t = "#kungfupanda";

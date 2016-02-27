@@ -1,1 +1,14 @@
-/* Empty. Add your own CSS if you like */
+.bookmarks-container{
+    height:100%;
+        background-color: #DDDDDD;
+}
+
+.bookmarks-container .empty-results{
+    text-align:center;
+    font-size:200px;
+}
+
+.bookmarks-container .empty-results h3{
+    font-size:50px;
+    text-transform:uppercase;
+}
