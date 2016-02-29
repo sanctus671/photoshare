@@ -3,10 +3,11 @@
 
 angular.module('app.controllers', [])
 
-.controller('NavCtrl', function($scope) {
+.controller('NavCtrl', function($scope, $state) {
     $scope.hideFooter = false;
     $scope.hideNav = function(){
         $scope.hideFooter = true;
+        $state.go("entry");
     }
 })
 
@@ -77,7 +78,12 @@ angular.module('app.controllers', [])
     };  
     
     $scope.shareViaFacebook = function(imageId){
-        window.open( SITE_URL + "?image=" + imageId, "_blank");
+        var ref = window.open( SITE_URL + "?image=" + imageId, "_blank","clearcache=yes,clearsessioncache=yes");
+        ref.addEventListener('loadstop', function(event) {        
+            if (event.url.match("state")) {
+                ref.close();
+            }
+        });        
     }
     $scope.shareViaInstagram = function(){
         var t = "#kungfupanda";

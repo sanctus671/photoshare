@@ -29,7 +29,7 @@ angular.module('app', ['ionic', 'app.controllers'])
 
     // Turn off caching for demo simplicity's sake
    //$ionicConfigProvider.views.maxCache(0);
-
+   $ionicConfigProvider.tabs.position('bottom');
     $stateProvider
     
     .state('home', {
@@ -43,6 +43,7 @@ angular.module('app', ['ionic', 'app.controllers'])
         controller: 'EntryCtrl'
     })    
     $urlRouterProvider.otherwise('/home');
+    
     
 })
 
