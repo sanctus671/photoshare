@@ -93,7 +93,80 @@ angular.module('app.controllers', [])
 })
 
 
-.controller('EntryCtrl', function($scope, $ionicLoading, SITE_URL, $ionicPopup) {
+.controller('EntryCtrl', function($scope, $ionicLoading, $ionicPopup, SITE_URL, $ionicModal, $q, $http) {
+    $scope.entry = {
+        photoid:"",
+        name:"",
+        email:"",
+        phone:"",
+        suburb:"",
+        tos:false,
+        vip:false
+    };
+
+    
+    $ionicModal.fromTemplateUrl('templates/tos.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+      }).then(function(modal) {
+        $scope.tosModal = modal;
+      });   
+      
+    $scope.openTos = function(){
+        console.log("here");
+        $scope.tosModal.show();
+    }
+    
+    $scope.submitEntry = function(form){
+        if (form.$valid){
+            $ionicLoading.show({
+                template: 'Submitting entry...'
+            });             
+            $scope.submitForm($scope.entry).then(function(data){
+                $ionicLoading.hide();
+                $scope.entry = {
+                    photoid:"",
+                    name:"",
+                    email:"",
+                    phone:"",
+                    suburb:"",
+                    tos:false,
+                    vip:false
+                };   
+                form.$setPristine();
+                $ionicPopup.alert({
+                title: 'Success',
+                template: data.msg
+                });                 
+            },function(data){
+                $ionicLoading.hide();
+                $ionicPopup.alert({
+                title: 'Error',
+                template: data.msg
+                });  
+            })
+
+        }
+
+    }
+    
+    $scope.submitForm = function(entry){
+        console.log(entry);
+        var deferred = $q.defer();  
+        $http.post(SITE_URL + "entry.php", entry)    
+            .success(function(data) {
+                if (data.result === "success"){
+                    deferred.resolve(data);
+                }
+                else{deferred.reject(data);}
+            })
+            .error(function(data,status) {
+                deferred.reject(data);
+            });
+
+        return deferred.promise;        
+    }
+    
     
 })
 

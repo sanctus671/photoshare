@@ -1,6 +1,6 @@
 .bookmarks-container{
     height:100%;
-        background-color: #c1d0e7;
+        background-color: #E3EBF2;
 }
 
 .bookmarks-container .empty-results{
@@ -11,4 +11,40 @@
 .bookmarks-container .empty-results h3{
     font-size:50px;
     text-transform:uppercase;
+}
+
+.entry-background{
+    background:url(../img/background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.entry-form{
+    background-color: white;
+}
+
+.validation-errors{
+        background-color: rgb(255, 255, 255);
+    color: red;
+
+    margin-top: -20px;
+}
+
+.blue-font{
+    color:#387ef5;
+}
+
+ol.tos-list.padding{
+    padding: 30px;
+    list-style:decimal;
+}
+
+.tos-list li{
+    margin-bottom: 20px;
+}
+
+.tos-list strong{
+    margin-top: 20px;
 }

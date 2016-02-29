@@ -1,16 +1,52 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<div class="entry-background">
+    <div class="bar bar-header bar-positive">
+      <h1 class="title">Enter the competition!</h1>
+    </div>
+
+    <form class="content has-header padding" name="entryForm" novalidate ng-submit="submitEntry(entryForm)">
+       
+        
+        <div class="list entry-form">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Photo ID*</span>
+            <input type="number" required placeholder="1234" name="photoid" ng-model="entry.photoid">
+          </label>        
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Full Name*</span>
+            <input type="text" required placeholder="John Doe" name="name" ng-model="entry.name">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Email*</span>
+            <input type="email" required placeholder="john@doe.com" name="email" ng-model="entry.email">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Phone*</span>
+            <input type="number" name="phone" required placeholder="123456789" ng-model="entry.phone">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Suburb</span>
+            <input type="text" placeholder="Auckland City" name="suburb" ng-model="entry.suburb">
+          </label>
+            <ion-checkbox required ng-required ng-model="entry.tos" name="tos">I agree to the Terms and Conditions*</ion-checkbox>
+          <label class="item item-input" ng-click="openTos()">
+              <span class="input-label blue-font">Read the terms and conditions</span>
+          </label>            
+          <ion-checkbox ng-model="entry.vip" name="vip">Please sign me up as a Westfield VIP</ion-checkbox>
+
+        </div>
+        
+       <div class="padding validation-errors" ng-show="entryForm.$submitted">
+            <p ng-show="entryForm.photoid.$error.required">* Photo ID is required</p>
+            <p ng-show="entryForm.photoid.$invalid && !entryForm.photoid.$pristine">* Photo ID must be a number</p>
+            <p ng-show="entryForm.name.$error.required">* Full Name is required</p>
+            <p ng-show="entryForm.email.$error.required">* Email is required</p>
+            <p ng-show="entryForm.email.$invalid && !entryForm.email.$pristine">* Email must be a valid email address</p> 
+            <p ng-show="entryForm.phone.$error.required">* Phone is required</p>
+            <p ng-show="entryForm.tos.$error.required">* Please accept the terms and conditions</p>
+        </div>         
+
+        <div class="padding">
+            <button type="submit" class="button button-block button-positive">Submit</button>
+        </div>
+    </form>
+</div>
