@@ -77,7 +77,7 @@ angular.module('app.controllers', [])
     };  
     
     $scope.shareViaFacebook = function(imageId){
-        window.open( SITE_URL + "?image=" + imageId, "_system");
+        window.open( SITE_URL + "?image=" + imageId, "_blank");
     }
     $scope.shareViaInstagram = function(){
         var t = "#kungfupanda";
