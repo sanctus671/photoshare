@@ -3,7 +3,16 @@
 
 angular.module('app.controllers', [])
 
+.controller('NavCtrl', function($scope) {
+    $scope.hideFooter = false;
+    $scope.hideNav = function(){
+        $scope.hideFooter = true;
+    }
+})
+
+
 .controller('HomeCtrl', function($scope, $ionicLoading, SITE_URL, $ionicPopup) {
+    $scope.currentPhotoId =0;
     $scope.useGetFile = function(){
           navigator.camera.getPicture(
                   $scope.onPhotoSuccess,
@@ -49,7 +58,8 @@ angular.module('app.controllers', [])
             $ionicLoading.hide();
             var data = JSON.parse(response.response);
             if (data.result === 'success'){
-                $scope.shareViaFacebook(encodeURI(SITE_URL + data.url));
+                $scope.currentPhotoId = data.id;
+                $scope.shareViaFacebook(data.id);
             }
             else{               
                 $ionicPopup.alert({
@@ -66,14 +76,21 @@ angular.module('app.controllers', [])
             });}, options);	
     };  
     
-    $scope.shareViaFacebook = function(imageUrl){
-        window.open( SITE_URL, "_system");
+    $scope.shareViaFacebook = function(imageId){
+        window.open( SITE_URL + "?image=" + imageId, "_system");
     }
     $scope.shareViaInstagram = function(){
         var t = "#kungfupanda";
         var u = "http://i.imgur.com/7NnWSgJ.jpg";
         window.plugins.socialsharing.shareViaInstagram('Message via Instagram', 'https://www.google.nl/images/srpr/logo4w.png', function() {console.log('share ok')}, function(errormsg){alert(errormsg)})
     }    
-});
+})
+
+
+.controller('EntryCtrl', function($scope, $ionicLoading, SITE_URL, $ionicPopup) {
+    
+})
+
+;
 
 

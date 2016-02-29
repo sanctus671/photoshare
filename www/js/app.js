@@ -37,7 +37,11 @@ angular.module('app', ['ionic', 'app.controllers'])
         templateUrl: "templates/home.html",
         controller: 'HomeCtrl'
     })  
-    
+    .state('entry', {
+        url: '/entry',
+        templateUrl: "templates/entry.html",
+        controller: 'EntryCtrl'
+    })    
     $urlRouterProvider.otherwise('/home');
     
 })

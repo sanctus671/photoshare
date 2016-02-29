@@ -26,5 +26,21 @@
   <body ng-app="app">
 
     <ion-nav-view></ion-nav-view>
+    <ion-tabs class="tabs-icon-top tabs-light" ng-controller="NavCtrl" ng-show="!hideFooter" >
+
+        <ion-tab title="Photo" icon="ion-ios-camera" href="#/home">
+          <ion-nav-view name="camera-tab"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="Entry Form" icon="ion-clipboard" href="#/entry">
+          <ion-nav-view name="entry-tab"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="Hide Tabs" icon="ion-close" href="#/hide" ng-click="hideNav()">
+          <ion-nav-view name="hide-tab"></ion-nav-view>
+        </ion-tab>          
+          
+      </ion-tabs>    
+    
   </body>
 </html>
