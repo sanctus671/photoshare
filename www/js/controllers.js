@@ -74,7 +74,9 @@ angular.module('app.controllers', [])
             $ionicPopup.alert({
             title: 'Error',
             template: 'Sorry, there was an error uploading your file.'
-            });}, options);	
+            });
+            $scope.currentPhotoId = 0;
+        }, options);	
     };  
     
     $scope.shareViaFacebook = function(imageId){
@@ -82,6 +84,11 @@ angular.module('app.controllers', [])
         ref.addEventListener('loadstop', function(event) {        
             if (event.url.match("closeiab")) {
                 ref.close();
+                $ionicPopup.alert({
+                title: 'Success',
+                template: "Your photo ID is: " + $scope.currentPhotoId
+                });                 
+                $scope.currentPhotoId = 0;
             }
         });        
     }
