@@ -82,7 +82,7 @@ angular.module('app.controllers', [])
     $scope.shareViaFacebook = function(imageId){
         var ref = window.open( SITE_URL + "?image=" + imageId, "_blank","clearcache=yes,clearsessioncache=yes");
         ref.addEventListener('loadstop', function(event) {        
-            if (event.url.match("closeiab")) {
+            if (event.url.match("closeiab") && !event.url.match("facebook")) {
                 ref.close();
                 $ionicPopup.alert({
                 title: 'Success',
