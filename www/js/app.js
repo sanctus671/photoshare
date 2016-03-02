@@ -47,4 +47,4 @@ angular.module('app', ['ionic', 'app.controllers'])
     
 })
 
-.constant('SITE_URL', 'http://www.taylorhamling.com/luminary/');
+.constant('SITE_URL', 'http://www.taylorhamling.com/luminary2/');

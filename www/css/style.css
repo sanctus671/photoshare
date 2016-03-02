@@ -48,3 +48,7 @@ ol.tos-list.padding{
 .tos-list strong{
     margin-top: 20px;
 }
+
+form.padding{
+    padding-bottom:50px;
+}

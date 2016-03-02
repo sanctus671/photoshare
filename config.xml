@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.taylorhamling.kungfupanda" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-  <name>Kung Fu Panda Camera</name>
+  <name>Luminary Photos</name>
   <description>
-    Camera app for Westfield for Kung Fu Panda release
+    Camera app for Westfield for Kung Fu Panda 3 release
   </description>
   <author email="taylor@taylorhamling.com" href="http://www.taylorhamling.com">
     Taylor Hamling

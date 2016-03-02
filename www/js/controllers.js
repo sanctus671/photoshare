@@ -86,7 +86,7 @@ angular.module('app.controllers', [])
                 ref.close();
                 $ionicPopup.alert({
                 title: 'Success',
-                template: "Your photo ID is: " + $scope.currentPhotoId
+                template: "The photo has been shared."
                 });                 
                 $scope.currentPhotoId = 0;
             }
@@ -102,7 +102,7 @@ angular.module('app.controllers', [])
 
 .controller('EntryCtrl', function($scope, $ionicLoading, $ionicPopup, SITE_URL, $ionicModal, $q, $http) {
     $scope.entry = {
-        photoid:"",
+        photoid:"0",
         name:"",
         email:"",
         phone:"",
@@ -132,7 +132,7 @@ angular.module('app.controllers', [])
             $scope.submitForm($scope.entry).then(function(data){
                 $ionicLoading.hide();
                 $scope.entry = {
-                    photoid:"",
+                    photoid:"0",
                     name:"",
                     email:"",
                     phone:"",

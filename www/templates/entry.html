@@ -8,11 +8,7 @@
     <form class="content has-header padding" name="entryForm" novalidate ng-submit="submitEntry(entryForm)">
        
         
-        <div class="list entry-form">
-          <label class="item item-input item-stacked-label">
-            <span class="input-label">Photo ID*</span>
-            <input type="number" required placeholder="1234" name="photoid" ng-model="entry.photoid">
-          </label>        
+        <div class="list entry-form">    
           <label class="item item-input item-stacked-label">
             <span class="input-label">Full Name*</span>
             <input type="text" required placeholder="John Doe" name="name" ng-model="entry.name">
@@ -38,7 +34,6 @@
         </div>
         
        <div class="padding validation-errors" ng-show="entryForm.$submitted">
-            <p ng-show="entryForm.photoid.$error.required">* Photo ID is required</p>
             <p ng-show="entryForm.photoid.$invalid && !entryForm.photoid.$pristine">* Photo ID must be a number</p>
             <p ng-show="entryForm.name.$error.required">* Full Name is required</p>
             <p ng-show="entryForm.email.$error.required">* Email is required</p>
