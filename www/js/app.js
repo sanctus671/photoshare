@@ -47,4 +47,4 @@ angular.module('app', ['ionic', 'app.controllers'])
     
 })
 
-.constant('SITE_URL', 'http://www.taylorhamling.com/luminary2/');
+.constant('SITE_URL', 'http://www.luminarygroup.co.nz/westfield/');
