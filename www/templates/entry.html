@@ -8,7 +8,11 @@
     <form class="content has-header padding" name="entryForm" novalidate ng-submit="submitEntry(entryForm)">
        
         
-        <div class="list entry-form">    
+        <div class="list entry-form"> 
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Photo ID*</span>
+            <input type="number" name="photoid" required placeholder="1234" ng-model="entry.photoid">
+          </label>            
           <label class="item item-input item-stacked-label">
             <span class="input-label">Full Name*</span>
             <input type="text" required placeholder="John Doe" name="name" ng-model="entry.name">

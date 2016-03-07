@@ -86,7 +86,7 @@ angular.module('app.controllers', [])
                 ref.close();
                 $ionicPopup.alert({
                 title: 'Success',
-                template: "The photo has been shared."
+                template: "The photo has been shared. Your photo ID is: " + $scope.currentPhotoId
                 });                 
                 $scope.currentPhotoId = 0;
             }
